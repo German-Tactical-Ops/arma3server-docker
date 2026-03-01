@@ -7,10 +7,15 @@
     
     git submodule update --init
     git submodule update --init --recursive
-    
-    git submodule update --remote
+
 ```
 
+
+## Update Remote
+```Bash
+    git submodule update --remote
+```
+## 
 ## Best
 ```Bash
     git pull --recurse-submodules
