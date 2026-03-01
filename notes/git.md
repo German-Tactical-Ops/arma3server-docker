@@ -7,9 +7,7 @@
     
     git submodule update --init
     git submodule update --init --recursive
-
 ```
-
 
 ## Update Remote
 ```Bash
