@@ -14,10 +14,11 @@ RUN echo "**** apt upgrade ****" \
     && apt-get update; \
     apt-get upgrade -y
 
+    # && apt-get install -y software-properties-common \
+
 ## Install Requirements
 RUN echo "**** Install Requirements ****" \
     && apt-get update \
-    && apt-get install -y software-properties-common \
     && apt-get update \
     && apt-get install -y \
     bc binutils bsdmainutils bzip2 \
