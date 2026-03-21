@@ -21,11 +21,13 @@ docker compose -f docker-compose.main.yml -p arma3-main up -d --build
 docker compose -f docker-compose.custom.yml -p arma3-custom up -d --build
 ```
 
-## Possible Alias
+## Alias
 ```Bash
 # in deine ~/.bashrc oder ~/.zshrc
-alias a3up='docker compose -f docker-compose.server1.yml up -d --build'
-alias a3down='docker compose -f docker-compose.server1.yml down'
+alias main-up='docker compose -f docker-compose.main.yml -p arma3-main up -d --build'
+alias custom-up='docker compose -f docker-compose.custom.yml -p arma3-custom up -d --build'
+alias main-down='docker compose -f docker-compose.main.yml -p arma3-main down'
+alias custom-down='docker compose -f docker-compose.custom.yml -p arma3-custom down'
 ```
 
 ## Shortcut Script
