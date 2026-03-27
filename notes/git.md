@@ -9,12 +9,12 @@
     git submodule update --init --recursive
 ```
 
+## Pull changes from submodules remote
+```Bash
+    git pull --recurse-submodules
+```
+
 ## New Submodules changes
 ```Bash
     git submodule update --remote
-```
-
-## Pull changes from this remote
-```Bash
-    git pull --recurse-submodules
 ```
