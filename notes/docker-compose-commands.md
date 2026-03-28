@@ -26,8 +26,10 @@ docker compose -f docker-compose.custom.yml -p arma3-custom up -d --build
 ```Bash
 # in deine ~/.bashrc oder ~/.zshrc
 alias main-up='docker compose -f docker-compose.main.yml -p arma3-main up -d --build'
+alias spider-up='docker compose -f docker-compose.spider.yml -p arma3-spider up -d --build'
 alias custom-up='docker compose -f docker-compose.custom.yml -p arma3-custom up -d --build'
 alias main-down='docker compose -f docker-compose.main.yml -p arma3-main down'
+alias spider-down='docker compose -f docker-compose.spider.yml -p arma3-spider down'
 alias custom-down='docker compose -f docker-compose.custom.yml -p arma3-custom down'
 ```
 
