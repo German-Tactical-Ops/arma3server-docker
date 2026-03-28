@@ -18,6 +18,7 @@ docker exec -it arma3-mods "bash"
 ```Bash
 docker compose -f docker-compose.base.yml -p arma3-base up -d --build
 docker compose -f docker-compose.main.yml -p arma3-main up -d --build
+docker compose -f docker-compose.spider.yml -p arma3-spider up -d --build
 docker compose -f docker-compose.custom.yml -p arma3-custom up -d --build
 ```
 
