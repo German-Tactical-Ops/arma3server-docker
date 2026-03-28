@@ -1,0 +1,28 @@
+services:
+  arma3-spider:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SERVER_NAME: spider
+        UID: ${HOST_UID}
+        GID: ${HOST_GID}
+        MODPACK_PATH: "Spider/GTO_PineSpider_3_Base.html"
+    image: arma3-spider:latest
+    container_name: arma3-spider
+    network_mode: host
+    volumes:
+      - /home/arma3server/missions:/home/arma3server/serverfiles/mpmissions
+      - /home/arma3server/mods:/home/arma3server/.local/share/Steam/steamapps/workshop/content/107410
+    restart: unless-stopped
+    secrets:
+      - steam_user_password
+      - steam_user
+      - steam_password
+secrets:
+  steam_user_password:
+    file: ./secrets/secrets-common
+  steam_user:
+    file: ./secrets/steam_user
+  steam_password:
+    file: ./secrets/steam_password
