@@ -18,5 +18,7 @@
 ```Bash
     git pull --recurse-submodules
 ```
-
-
+## Best Practices
+- Always use `--recurse-submodules` when cloning to ensure all submodules are initialized and updated.
+- Use `--remote` with `update` to fetch latest changes from remote repositories.
+- Regularly run `git pull --recurse-submodules` to keep your project up-to-date with all submodule changes.
