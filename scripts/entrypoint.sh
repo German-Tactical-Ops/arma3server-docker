@@ -46,9 +46,11 @@ fi
 
     # === 1. Sauberes Herunterfahren bei Docker-Stop ===
     cleanup() {
-        echo "SIGTERM/SIGINT erhalten → stoppe Arma 3 Server..."
+        echo "SIGTERM/SIGINT erhalten -> stoppe Arma 3 Server..."
         ./arma3server stop || true
+        echo "Sleep 30"
         sleep 30
+        echo "Try Exit"
         exit 0
     }
     trap cleanup SIGTERM SIGINT
