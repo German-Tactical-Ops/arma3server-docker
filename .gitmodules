@@ -1,4 +1,0 @@
-[submodule "arma3server-html"]
-	path = arma3server-html
-	url = https://github.com/German-Tactical-Ops/arma3server-html.git
-	branch = master
