@@ -15,6 +15,7 @@ services:
       - /home/arma3server/missions:/home/arma3server/serverfiles/mpmissions
       - /home/arma3server/mods:/home/arma3server/.local/share/Steam/steamapps/workshop/content/107410
     restart: unless-stopped
+    stop_grace_period: 60s
     secrets:
       - steam_user_password
       - steam_user

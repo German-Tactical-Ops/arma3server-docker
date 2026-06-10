@@ -40,7 +40,7 @@ Mods are defined by HTML files in `arma3server-html/`.
 ### 3. Container Lifecycle
 - **First Run**: The container detects the absence of a marker file, triggers `auto-install` via LinuxGSM, downloads mods, and sets up configurations.
 - **Regular Start**: Subsequent starts skip installation and directly boot the Arma 3 server.
-- **Shutdown**: The container traps `SIGTERM/SIGINT` to ensure the server stops gracefully via LinuxGSM.
+- **Shutdown**: The container traps `SIGTERM/SIGINT` to ensure the server stops gracefully via LinuxGSM. A `stop_grace_period` of 60s is configured in docker-compose to allow for a clean shutdown.
 
 ## Developer Guidelines
 
