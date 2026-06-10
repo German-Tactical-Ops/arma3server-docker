@@ -19,7 +19,6 @@ RUN echo "**** apt upgrade ****" \
 ## Install Requirements
 RUN echo "**** Install Requirements ****" \
     && apt-get update \
-    && apt-get update \
     && apt-get install -y \
     bc binutils bsdmainutils bzip2 \
     ca-certificates cron cpio curl \
