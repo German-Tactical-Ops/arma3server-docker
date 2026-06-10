@@ -77,22 +77,22 @@ RUN curl -Lo linuxgsm.sh https://linuxgsm.sh && \
 
 # copy lgsm-configs
 RUN mkdir -p ${LGSM_CONFIG}
-COPY --chown=${USERNAME}:${USERNAME} arma3server-config/${SERVER_NAME}/common.cfg ${LGSM_CONFIG}
-COPY --chown=${USERNAME}:${USERNAME} arma3server-config/${SERVER_NAME}/secrets-common.cfg ${LGSM_CONFIG}
-COPY --chown=${USERNAME}:${USERNAME} arma3server-config/${SERVER_NAME}/secrets-arma3server.cfg ${LGSM_CONFIG}
+COPY --chown=${USERNAME}:${USERNAME} config/${SERVER_NAME}/common.cfg ${LGSM_CONFIG}
+COPY --chown=${USERNAME}:${USERNAME} config/${SERVER_NAME}/secrets-common.cfg ${LGSM_CONFIG}
+COPY --chown=${USERNAME}:${USERNAME} config/${SERVER_NAME}/secrets-arma3server.cfg ${LGSM_CONFIG}
 
 # copy server-configs
 RUN mkdir -p ${SERVER_CONFIG}
-COPY --chown=${USERNAME}:${USERNAME} arma3server-config/${SERVER_NAME}/arma3server.server.cfg ${SERVER_CONFIG}
-COPY --chown=${USERNAME}:${USERNAME} arma3server-config/${SERVER_NAME}/arma3server.network.cfg ${SERVER_CONFIG}
+COPY --chown=${USERNAME}:${USERNAME} config/${SERVER_NAME}/arma3server.server.cfg ${SERVER_CONFIG}
+COPY --chown=${USERNAME}:${USERNAME} config/${SERVER_NAME}/arma3server.network.cfg ${SERVER_CONFIG}
 
 # copy userconfig
 RUN mkdir -p "/home/arma3server/serverfiles/userconfig"
-COPY --chown=${USERNAME}:${USERNAME} arma3server-config/${SERVER_NAME}/cba_settings.sqf "/home/arma3server/serverfiles/userconfig/"
+COPY --chown=${USERNAME}:${USERNAME} config/${SERVER_NAME}/cba_settings.sqf "/home/arma3server/serverfiles/userconfig/"
 
 # copy Profile
 RUN mkdir -p "/home/arma3server/.local/share/Arma 3 - Other Profiles/Player"
-COPY --chown=${USERNAME}:${USERNAME} arma3server-config/${SERVER_NAME}/Player.Arma3Profile "/etc/arma3/"
+COPY --chown=${USERNAME}:${USERNAME} config/${SERVER_NAME}/Player.Arma3Profile "/etc/arma3/"
 RUN mv "/etc/arma3/Player.Arma3Profile" -t '/home/arma3server/.local/share/Arma 3 - Other Profiles/Player'/
 
 # copy html
