@@ -4,7 +4,7 @@ Welcome to the `arma3server-docker` project. This repository provides a Docker-b
 
 ## Project Overview
 
-The project is structured to support multiple server instances (e.g., `base`, `experimental`, `main`, `spider`) using a common `Dockerfile` but different configuration sets and modlists.
+The project is structured to support multiple server instances (e.g., `experimental`, `main`, `spider`, `custom`) using a common `Dockerfile` but different configuration sets and modlists.
 
 ### Key Technologies
 - **Docker & Docker Compose**: Orchestration and containerization.
@@ -27,7 +27,7 @@ The project is structured to support multiple server instances (e.g., `base`, `e
 
 ### 1. Adding or Updating a Server Instance
 To create a new server instance (e.g., `newserver`):
-1. Create a directory `config/newserver/` and populate it with the required config files (copy from `config/base/` as a starting point).
+1. Create a directory `config/newserver/` and populate it with the required config files (copy from `config/main/` as a starting point).
 2. Add a corresponding `docker-compose.newserver.yml` file.
 3. Update the `SERVER_NAME` and `MODPACK_PATH` build arguments in the compose file.
 
@@ -41,6 +41,12 @@ Mods are defined by HTML files in `arma3server-html/`.
 - **First Run**: The container detects the absence of a marker file, triggers `auto-install` via LinuxGSM, downloads mods, and sets up configurations.
 - **Regular Start**: Subsequent starts skip installation and directly boot the Arma 3 server.
 - **Shutdown**: The container traps `SIGTERM/SIGINT` to ensure the server stops gracefully via LinuxGSM. A `stop_grace_period` of 60s is configured in docker-compose to allow for a clean shutdown.
+
+### 4. Management Script
+A helper script `manage_servers.sh` is provided in the root directory to simplify building and starting server instances.
+- Run `./manage_servers.sh` to see an interactive menu.
+- You can choose to build/start individual instances or the entire cluster.
+- The script automatically detects available instances by looking for `docker-compose.<instance>.yml` files.
 
 ## Developer Guidelines
 

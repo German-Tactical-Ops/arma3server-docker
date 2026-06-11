@@ -55,7 +55,7 @@ RUN mkdir -p "/etc/arma3" \
 WORKDIR /home/${USERNAME}
 USER ${USERNAME}
 
-ARG SERVER_NAME=base
+ARG SERVER_NAME=main
 ARG SCRIPT="/etc/arma3/scripts"
 ARG DEFAULT_CONFIG="/etc/arma3/default-config"
 ARG LGSM_CONFIG="/home/arma3server/lgsm/config-lgsm/arma3server"

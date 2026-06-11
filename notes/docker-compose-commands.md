@@ -16,22 +16,10 @@ docker exec -it arma3-mods "bash"
 
 ## My Docker Compose Commands
 ```Bash
-docker compose -f docker-compose.base.yml -p arma3-base up -d --build
 docker compose -f docker-compose.main.yml -p arma3-main up -d --build
 docker compose -f docker-compose.spider.yml -p arma3-spider up -d --build
 docker compose -f docker-compose.custom.yml -p arma3-custom up -d --build
 docker compose -f docker-compose.experimental.yml -p arma3-experimental up -d --build
-```
-
-## Alias
-```Bash
-# in deine ~/.bashrc oder ~/.zshrc
-alias main-up='docker compose -f docker-compose.main.yml -p arma3-main up -d --build'
-alias spider-up='docker compose -f docker-compose.spider.yml -p arma3-spider up -d --build'
-alias custom-up='docker compose -f docker-compose.custom.yml -p arma3-custom up -d --build'
-alias main-down='docker compose -f docker-compose.main.yml -p arma3-main down'
-alias spider-down='docker compose -f docker-compose.spider.yml -p arma3-spider down'
-alias custom-down='docker compose -f docker-compose.custom.yml -p arma3-custom down'
 ```
 
 ## Shortcut Script
@@ -53,10 +41,4 @@ SERVER=$1
 CMD=$2
 
 sh -c "docker compose -f docker-compose.${SERVER}.yml ${CMD}"
-
-#alias a3up='docker compose -f docker-compose.base.yml up -d'
-#alias a3start='docker compose -f docker-compose.base.yml start'
-#alias a3stop='docker compose -f docker-compose.base.yml stop'
-#alias a3down='docker compose -f docker-compose.base.yml down'
-#alias a3logs='docker compose -f docker-compose.base.yml logs -f'
 ```
