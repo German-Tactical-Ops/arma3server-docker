@@ -7,6 +7,17 @@ YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
+# Standardmäßig im Detached-Modus starten
+DETACHED="-d"
+
+# Argumente verarbeiten
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -d|--debug) DETACHED=""; shift ;;
+        *) echo "Unbekanntes Argument: $1"; exit 1 ;;
+    esac
+done
+
 echo -e "${BLUE}========================================"
 echo -e "    Arma 3 Server Build Manager"
 echo -e "========================================${NC}"
@@ -17,7 +28,7 @@ INSTANCES=($(ls docker-compose.*.yml | grep -v "docker-compose.yml" | sed 's/doc
 show_menu() {
     echo -e "\n${YELLOW}Welchen Server möchtest du bauen/starten?${NC}"
     echo "----------------------------------------"
-    echo -e "${GREEN}0)${NC} ALLE Server (Cluster) [Standard]"
+    echo -e "${BLUE}0)${NC} ALLE Server (Cluster) [Standard]"
     index=1
     for instance in "${INSTANCES[@]}"; do
         echo -e "${GREEN}$index)${NC} arma3-$instance"
@@ -31,7 +42,7 @@ run_docker() {
     local file=$1
     local name=$2
     echo -e "\n${BLUE}Starte Build für: ${YELLOW}$name${NC}"
-    docker compose -f "$file" up -d --build
+    docker compose -f "$file" up $DETACHED --build
 }
 
 while true; do
