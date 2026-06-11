@@ -17,12 +17,12 @@ INSTANCES=($(ls docker-compose.*.yml | grep -v "docker-compose.yml" | sed 's/doc
 show_menu() {
     echo -e "\n${YELLOW}Welchen Server möchtest du bauen/starten?${NC}"
     echo "----------------------------------------"
+    echo -e "${GREEN}0)${NC} ALLE Server (Cluster) [Standard]"
     index=1
     for instance in "${INSTANCES[@]}"; do
         echo -e "${GREEN}$index)${NC} arma3-$instance"
         ((index++))
     done
-    echo -e "${GREEN}$index)${NC} ALLE Server (Cluster)"
     echo -e "${RED}q)${NC} Beenden"
     echo "----------------------------------------"
 }
@@ -42,7 +42,12 @@ run_docker() {
 
 while true; do
     show_menu
-    read -p "Auswahl: " choice
+    read -p "Auswahl [0]: " choice
+    
+    # Standardwert setzen, wenn Eingabe leer ist
+    if [[ -z "$choice" ]]; then
+        choice="0"
+    fi
 
     if [[ "$choice" == "q" ]]; then
         echo -e "${BLUE}Auf Wiedersehen!${NC}"
@@ -52,13 +57,12 @@ while true; do
     # Prüfen ob Eingabe eine Zahl ist
     if [[ "$choice" =~ ^[0-9]+$ ]]; then
         num_instances=${#INSTANCES[@]}
-        all_option=$((num_instances + 1))
 
-        if [[ "$choice" -le "$num_instances" ]]; then
+        if [[ "$choice" -eq 0 ]]; then
+            run_docker "docker-compose.yml" "ALLE Server (Cluster)"
+        elif [[ "$choice" -le "$num_instances" ]]; then
             selected_instance=${INSTANCES[$((choice-1))]}
             run_docker "docker-compose.$selected_instance.yml" "arma3-$selected_instance"
-        elif [[ "$choice" -eq "$all_option" ]]; then
-            run_docker "docker-compose.yml" "ALLE Server (Cluster)"
         else
             echo -e "${RED}Ungültige Auswahl!${NC}"
         fi
