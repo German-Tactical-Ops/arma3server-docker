@@ -14,7 +14,7 @@ The project is structured to support multiple server instances (e.g., `experimen
 
 ## Directory Structure
 
-- `/arma3server-html/`: Contains HTML files exported from the Arma 3 Launcher, used to define modsets.
+- `/html/`: Contains HTML files exported from the Arma 3 Launcher, used to define modsets.
 - `/config/`: Configuration templates for different server instances.
     - `/config/<instance>/`: Instance-specific configs (`arma3server.server.cfg`, `common.cfg`, `cba_settings.sqf`, etc.).
 - `/scripts/`: Automation scripts for the container.
@@ -32,7 +32,7 @@ To create a new server instance (e.g., `newserver`):
 3. Update the `SERVER_NAME` and `MODPACK_PATH` build arguments in the compose file.
 
 ### 2. Managing Mods
-Mods are defined by HTML files in `arma3server-html/`.
+Mods are defined by HTML files in `html/`.
 - The `entrypoint.sh` script uses `create_sublist.sh` and `set_modlist.sh` to parse these HTML files during the first run.
 - Workshop IDs are extracted and written to LinuxGSM's config.
 - Mods are stored in a persistent volume (usually mapped to `/home/arma3server/mods` on the host).
