@@ -54,6 +54,7 @@ while true; do
 
         if [[ "$choice" -eq 0 ]]; then
             run_docker "docker-compose.yml" "ALLE Server (Cluster)"
+            exit 0
         elif [[ "$choice" -le "$num_instances" ]]; then
             selected_instance=${INSTANCES[$((choice-1))]}
             run_docker "docker-compose.$selected_instance.yml" "arma3-$selected_instance"
