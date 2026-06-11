@@ -31,13 +31,7 @@ run_docker() {
     local file=$1
     local name=$2
     echo -e "\n${BLUE}Starte Build für: ${YELLOW}$name${NC}"
-    docker compose -f "$file" build
-    
-    read -p "Soll der Container auch direkt gestartet werden? (y/n): " start_now
-    if [[ "$start_now" == "y" || "$start_now" == "Y" ]]; then
-        docker compose -f "$file" up -d
-        echo -e "${GREEN}$name wurde gestartet.${NC}"
-    fi
+    docker compose -f "$file" up -d --build
 }
 
 while true; do
