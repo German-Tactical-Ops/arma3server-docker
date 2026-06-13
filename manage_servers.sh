@@ -42,7 +42,8 @@ run_docker() {
     local file=$1
     local name=$2
     echo -e "\n${BLUE}Starte Build für: ${YELLOW}$name${NC}"
-    docker compose -f "$file" -p arma3-$name up $DETACHED --build
+    docker compose -f "$file" -p $name up $DETACHED --build
+    #todo: remove name?
 }
 
 while true; do
