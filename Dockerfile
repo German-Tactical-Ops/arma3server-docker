@@ -112,3 +112,6 @@ ENTRYPOINT ["bash","/etc/arma3/scripts/entrypoint.sh"]
 # todo: mount-virtual Profiles maybe?
 
 # todo: for userconfig make a git repo that will be pulled on container start (ask S3v1 for help and best practice)
+
+
+# todo: add a central html repo into ~. clone on container build, pull on container start
