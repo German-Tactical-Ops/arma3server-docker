@@ -7,7 +7,7 @@ services:
         SERVER_NAME: tacops
         UID: ${HOST_UID}
         GID: ${HOST_GID}
-        MODPACK_PATH: "Custom/TacOps_3_15062026.html"
+        MODPACK_PATH: "Custom/TacOps_3_26062026.html"
     image: arma3-tacops:latest
     container_name: arma3-tacops
     network_mode: host
