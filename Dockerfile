@@ -115,3 +115,4 @@ ENTRYPOINT ["bash","/etc/arma3/scripts/entrypoint.sh"]
 
 
 # todo: add a central html repo into ~. clone on container build, pull on container start
+# todo: make htmls a volume that is scaned and the matching html is taken on start.
