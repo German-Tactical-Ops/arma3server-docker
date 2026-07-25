@@ -7,7 +7,7 @@ services:
         SERVER_NAME: main
         UID: ${HOST_UID}
         GID: ${HOST_GID}
-        MODPACK_PATH: "Main/GTO_Main_37_Base.html"
+        MODPACK_PATH: "Main/GTO_Main_36_Base_revisited.html"
     image: arma3-main:latest
     container_name: arma3-main
     network_mode: host
