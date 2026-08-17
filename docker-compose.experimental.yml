@@ -7,7 +7,7 @@ services:
         SERVER_NAME: experimental
         UID: ${HOST_UID}
         GID: ${HOST_GID}
-        MODPACK_PATH: "Main/GTO_Main_37_Base.html"
+        MODPACK_PATH: "Briten/GTO_BRIT_03_Base.html"
     image: arma3-experimental:latest
     container_name: arma3-experimental
     network_mode: host
